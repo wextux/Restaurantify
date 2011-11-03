@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE9FAC0C1463549900BECEF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0B1463549900BECEF6 /* UIKit.framework */; };
+		BE9FAC0E1463549900BECEF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0D1463549900BECEF6 /* Foundation.framework */; };
+		BE9FAC101463549900BECEF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0F1463549900BECEF6 /* CoreGraphics.framework */; };
+		BE9FAC161463549900BECEF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE9FAC141463549900BECEF6 /* InfoPlist.strings */; };
+		BE9FAC181463549900BECEF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FAC171463549900BECEF6 /* main.m */; };
+		BE9FAC1C1463549900BECEF6 /* BYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FAC1B1463549900BECEF6 /* BYAppDelegate.m */; };
+		BE9FAC1F1463549900BECEF6 /* BYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FAC1E1463549900BECEF6 /* BYViewController.m */; };
+		BE9FAC221463549900BECEF6 /* BYViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */; };
+		BE9FAC251463549900BECEF6 /* BYViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BE9FAC071463549900BECEF6 /* Restaurantify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurantify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE9FAC0B1463549900BECEF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE9FAC0D1463549900BECEF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE9FAC0F1463549900BECEF6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE9FAC131463549900BECEF6 /* Restaurantify-Info.plist */ = {isa = PBXFileReference; path = "Restaurantify-Info.plist"; sourceTree = "<group>"; };
+		BE9FAC151463549900BECEF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE9FAC171463549900BECEF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE9FAC191463549900BECEF6 /* Restaurantify-Prefix.pch */ = {isa = PBXFileReference; path = "Restaurantify-Prefix.pch"; sourceTree = "<group>"; };
+		BE9FAC1A1463549900BECEF6 /* BYAppDelegate.h */ = {isa = PBXFileReference; path = BYAppDelegate.h; sourceTree = "<group>"; };
+		BE9FAC1B1463549900BECEF6 /* BYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYAppDelegate.m; sourceTree = "<group>"; };
+		BE9FAC1D1463549900BECEF6 /* BYViewController.h */ = {isa = PBXFileReference; path = BYViewController.h; sourceTree = "<group>"; };
+		BE9FAC1E1463549900BECEF6 /* BYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYViewController.m; sourceTree = "<group>"; };
+		BE9FAC211463549900BECEF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BYViewController_iPhone.xib; sourceTree = "<group>"; };
+		BE9FAC241463549900BECEF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BYViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE9FAC041463549900BECEF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE9FAC0C1463549900BECEF6 /* UIKit.framework in Frameworks */,
+				BE9FAC0E1463549900BECEF6 /* Foundation.framework in Frameworks */,
+				BE9FAC101463549900BECEF6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE9FABFC1463549900BECEF6 = {
+			isa = PBXGroup;
+			children = (
+				BE9FAC111463549900BECEF6 /* Restaurantify */,
+				BE9FAC0A1463549900BECEF6 /* Frameworks */,
+				BE9FAC081463549900BECEF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE9FAC081463549900BECEF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FAC071463549900BECEF6 /* Restaurantify.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE9FAC0A1463549900BECEF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FAC0B1463549900BECEF6 /* UIKit.framework */,
+				BE9FAC0D1463549900BECEF6 /* Foundation.framework */,
+				BE9FAC0F1463549900BECEF6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE9FAC111463549900BECEF6 /* Restaurantify */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FAC1A1463549900BECEF6 /* BYAppDelegate.h */,
+				BE9FAC1B1463549900BECEF6 /* BYAppDelegate.m */,
+				BE9FAC1D1463549900BECEF6 /* BYViewController.h */,
+				BE9FAC1E1463549900BECEF6 /* BYViewController.m */,
+				BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */,
+				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
+				BE9FAC121463549900BECEF6 /* Supporting Files */,
+			);
+			path = Restaurantify;
+			sourceTree = "<group>";
+		};
+		BE9FAC121463549900BECEF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FAC131463549900BECEF6 /* Restaurantify-Info.plist */,
+				BE9FAC141463549900BECEF6 /* InfoPlist.strings */,
+				BE9FAC171463549900BECEF6 /* main.m */,
+				BE9FAC191463549900BECEF6 /* Restaurantify-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE9FAC061463549900BECEF6 /* Restaurantify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE9FAC281463549900BECEF6 /* Build configuration list for PBXNativeTarget "Restaurantify" */;
+			buildPhases = (
+				BE9FAC031463549900BECEF6 /* Sources */,
+				BE9FAC041463549900BECEF6 /* Frameworks */,
+				BE9FAC051463549900BECEF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Restaurantify;
+			productName = Restaurantify;
+			productReference = BE9FAC071463549900BECEF6 /* Restaurantify.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE9FABFE1463549900BECEF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Superna;
+			};
+			buildConfigurationList = BE9FAC011463549900BECEF6 /* Build configuration list for PBXProject "Restaurantify" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE9FABFC1463549900BECEF6;
+			productRefGroup = BE9FAC081463549900BECEF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE9FAC061463549900BECEF6 /* Restaurantify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE9FAC051463549900BECEF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE9FAC161463549900BECEF6 /* InfoPlist.strings in Resources */,
+				BE9FAC221463549900BECEF6 /* BYViewController_iPhone.xib in Resources */,
+				BE9FAC251463549900BECEF6 /* BYViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE9FAC031463549900BECEF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE9FAC181463549900BECEF6 /* main.m in Sources */,
+				BE9FAC1C1463549900BECEF6 /* BYAppDelegate.m in Sources */,
+				BE9FAC1F1463549900BECEF6 /* BYViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE9FAC141463549900BECEF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE9FAC151463549900BECEF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE9FAC211463549900BECEF6 /* en */,
+			);
+			name = BYViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE9FAC241463549900BECEF6 /* en */,
+			);
+			name = BYViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE9FAC261463549900BECEF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE9FAC271463549900BECEF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE9FAC291463549900BECEF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Restaurantify/Restaurantify-Prefix.pch";
+				INFOPLIST_FILE = "Restaurantify/Restaurantify-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BE9FAC2A1463549900BECEF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Restaurantify/Restaurantify-Prefix.pch";
+				INFOPLIST_FILE = "Restaurantify/Restaurantify-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE9FAC011463549900BECEF6 /* Build configuration list for PBXProject "Restaurantify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE9FAC261463549900BECEF6 /* Debug */,
+				BE9FAC271463549900BECEF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE9FAC281463549900BECEF6 /* Build configuration list for PBXNativeTarget "Restaurantify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE9FAC291463549900BECEF6 /* Debug */,
+				BE9FAC2A1463549900BECEF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE9FABFE1463549900BECEF6 /* Project object */;
+}
