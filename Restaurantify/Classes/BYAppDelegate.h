@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LLStoreWrapper.h"
+#import "BYShopifyVariant.h"
+
 
 @class BYViewController;
 
