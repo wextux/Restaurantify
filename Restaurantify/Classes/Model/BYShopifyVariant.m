@@ -58,7 +58,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"title"]) {
             [self setTitle:value];
@@ -78,7 +77,7 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
-            [dateStr release];
+
             [dateFormatter release];
         } else if ([key isEqualToString:@"inventory_policy"]) {
             [self setInventoryPolicy:value];

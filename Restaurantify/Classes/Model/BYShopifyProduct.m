@@ -46,7 +46,7 @@
                 [variants addObject:shopifyVariant];
             }
             
-            [jsonVariants release];
+//            [jsonVariants release];
             
         } else if ([key isEqualToString:@"images"]) {
         
@@ -58,7 +58,7 @@
                 [variants addObject:shopifyImage];
             }
             
-            [jsonImages release];
+//            [jsonImages release];
         
         } else if ([key isEqualToString:@"tags"]) {
             [self setTags:value];
@@ -77,7 +77,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setPublishedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"vendor"]) {
             [self setVendor:value];
@@ -92,7 +91,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"updated_at"]) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -103,7 +101,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"id"]) {
             [self setIdentifier:value];

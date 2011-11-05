@@ -40,7 +40,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"updated_at"]) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -51,7 +50,6 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
-            [dateStr release];
             [dateFormatter release];
         } else if ([key isEqualToString:@"product_id"]) {
             [self setProductId:value];
