@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLStoreWrapper.h"
+#import "BYShopifyVariant.h"
 
-@interface BYViewController : UIViewController
+@interface BYViewController : UIViewController <LLStoreDelegate>
 
 @end

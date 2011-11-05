@@ -7,6 +7,9 @@
 //
 
 #import "BYViewController.h"
+#import "LLStoreWrapper.h"
+#import "BYShopifyProduct.h"
+
 
 @implementation BYViewController
 
@@ -21,6 +24,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
+    [storeWrapper setDelegate:self];
+    [storeWrapper getProducts];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -60,5 +67,29 @@
         return YES;
     }
 }
+
+
+#pragma LLStoreWrapperDelegate
+
+
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSArray *)products {
+    //You can log the products by doing NSLog(@"%@", products);
+    
+    for (BYShopifyProduct *product in products) {
+        NSLog(@"%@",product.title);
+    }
+    
+//    NSLog(@"%@", products);
+    
+}
+
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingProducts:(NSDictionary *)failure {
+    NSLog(@"Failure: %@", failure);
+}
+
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingOrders:(NSArray *)orders {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg{}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure{}
 
 @end

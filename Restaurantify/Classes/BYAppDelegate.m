@@ -8,8 +8,6 @@
 
 #import "BYAppDelegate.h"
 #import "BYViewController.h"
-#import "LLStoreWrapper.h"
-#import "BYShopifyVariant.h"
 
 
 @implementation BYAppDelegate
@@ -32,60 +30,13 @@
         self.viewController = [[[BYViewController alloc] initWithNibName:@"BYViewController_iPhone" bundle:nil] autorelease];
     } else {
         self.viewController = [[[BYViewController alloc] initWithNibName:@"BYViewController_iPad" bundle:nil] autorelease];
-    
-        LLStoreWrapper *storeWrapper = [[[LLStoreWrapper alloc] init] autorelease];
-        [storeWrapper setDelegate:self];
-        [storeWrapper getProducts];
-    
+
+
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
-
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSArray *)products {
-    //You can log the products by doing NSLog(@"%@", products);
-    for (NSDictionary *product in products) {
-        for (id key in [product allKeys]) {
-            id value = [product objectForKey:key];
-            if ([value isKindOfClass:[NSArray class]]) {
-                NSArray *itemArray = (NSArray*)value;
-                for (id item in itemArray) {
-                    NSLog(@"item class: %@", [item class]);
-                    if ([item isKindOfClass:[NSDictionary class]]) {
-                        NSDictionary* newDict = (NSDictionary*)item;
-                        
-                        if ([newDict objectForKey:@"grams"]) {
-                            BYShopifyVariant *variant = [[BYShopifyVariant alloc] initWithDictionary:newDict];
-                            
-                            NSLog(@"price: %@",variant.price);
-                            
-                        }
-                        for (id subKey in [newDict allKeys]) {
-                            id value = [newDict objectForKey:subKey];
-                            NSLog(@"%@,    Class: %@",value, [value class]);
-                        }
-                    } else {
-                      NSLog(@"%@,    Class: %@",item, [item class]);  
-                    }
-                    
-                }
-            } else {
-                NSLog(@"%@,    Class: %@",value, [value class]);
-            }
-        }
-    }
-    
-    //NSLog(@"%@", products);
-
-}
-
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingProducts:(NSDictionary *)failure {
-    NSLog(@"Failure: %@", failure);
-}
-
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingOrders:(NSArray *)orders {}
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

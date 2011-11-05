@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LLStoreWrapper.h"
-#import "BYShopifyVariant.h"
+
 
 
 @class BYViewController;
 
-@interface BYAppDelegate : UIResponder <UIApplicationDelegate, LLStoreDelegate>
+@interface BYAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
