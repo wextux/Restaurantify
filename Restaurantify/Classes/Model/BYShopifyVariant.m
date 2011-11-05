@@ -3,7 +3,7 @@
 //  Restaurantify
 //
 //  Created by Will Fairclough on 11-11-05.
-//  Copyright (c) 2011 Superna. All rights reserved.
+//  Copyright (c) 2011 Boneyard Interactive. All rights reserved.
 //
 
 #import "BYShopifyVariant.h"
@@ -32,22 +32,15 @@
     return(self);
 }
 
-- (void)setRequiresShippingStr:(NSString *)newRequiresShippingStr {
-    
-    if ([newRequiresShippingStr isEqualToString:@"false"]) {
-        requiresShipping = NO;
-    } else {
-        requiresShipping = YES;
-    }
-}
-
-- (BOOL)requiresShipping {
+- (Boolean)requiresShipping {
     return requiresShipping;
 }
 
-- (void)setObjectWithDictionary:(NSDictionary *)variantDictionary {
-    
+- (Boolean)taxable {
+    return taxable;
+}
 
+- (void)setObjectWithDictionary:(NSDictionary *)variantDictionary {
     
     for (NSString *key in [variantDictionary allKeys]) {
         id value = [variantDictionary objectForKey:key];
@@ -65,6 +58,8 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
+            [dateStr release];
+            [dateFormatter release];
         } else if ([key isEqualToString:@"title"]) {
             [self setTitle:value];
         } else if ([key isEqualToString:@"requires_shipping"]) {
@@ -83,6 +78,8 @@
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
+            [dateStr release];
+            [dateFormatter release];
         } else if ([key isEqualToString:@"inventory_policy"]) {
             [self setInventoryPolicy:value];
         } else if ([key isEqualToString:@"compare_at_price"]) {
@@ -113,9 +110,7 @@
         } else if ([key isEqualToString:@"fulfillment_service"]) {
             [self setFulfillmentService:value];
         }
-        
-        
-        
+    
     }
 }
 @end
