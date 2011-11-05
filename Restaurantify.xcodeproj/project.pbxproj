@@ -59,6 +59,7 @@
 		BE9FADCB1465810200BECEF6 /* BYShopifyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADCA1465810200BECEF6 /* BYShopifyObject.m */; };
 		BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADCD1465835B00BECEF6 /* BYShopifyImage.m */; };
 		BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */; };
+		BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,8 @@
 		BE9FADCD1465835B00BECEF6 /* BYShopifyImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyImage.m; path = Model/BYShopifyImage.m; sourceTree = "<group>"; };
 		BE9FADCF1465844000BECEF6 /* BYShopifyVariant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BYShopifyVariant.h; path = Model/BYShopifyVariant.h; sourceTree = "<group>"; };
 		BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyVariant.m; path = Model/BYShopifyVariant.m; sourceTree = "<group>"; };
+		BE9FADD21465951F00BECEF6 /* BYShopifyProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BYShopifyProduct.h; path = Model/BYShopifyProduct.h; sourceTree = "<group>"; };
+		BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyProduct.m; path = Model/BYShopifyProduct.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +440,8 @@
 				BE9FADCD1465835B00BECEF6 /* BYShopifyImage.m */,
 				BE9FADCF1465844000BECEF6 /* BYShopifyVariant.h */,
 				BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */,
+				BE9FADD21465951F00BECEF6 /* BYShopifyProduct.h */,
+				BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				BE9FADCB1465810200BECEF6 /* BYShopifyObject.m in Sources */,
 				BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */,
 				BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */,
+				BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
