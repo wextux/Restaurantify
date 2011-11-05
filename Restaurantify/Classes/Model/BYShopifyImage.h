@@ -3,7 +3,7 @@
 //  Restaurantify
 //
 //  Created by Will Fairclough on 11-11-05.
-//  Copyright (c) 2011 Superna. All rights reserved.
+//  Copyright (c) 2011 Boneyard Interactive. All rights reserved.
 //
 
 #import "BYShopifyObject.h"
@@ -14,4 +14,7 @@
 @property (strong, nonatomic) NSNumber *productId;
 @property (strong, nonatomic) NSString *src;
 
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (void)setObjectWithDictionary:(NSDictionary *)jsonImageDictionary;
 @end
