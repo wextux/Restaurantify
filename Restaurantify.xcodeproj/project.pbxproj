@@ -59,6 +59,7 @@
 		BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADCD1465835B00BECEF6 /* BYShopifyImage.m */; };
 		BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */; };
 		BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */; };
+		BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,8 @@
 		BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyVariant.m; path = Model/BYShopifyVariant.m; sourceTree = "<group>"; };
 		BE9FADD21465951F00BECEF6 /* BYShopifyProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BYShopifyProduct.h; path = Model/BYShopifyProduct.h; sourceTree = "<group>"; };
 		BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyProduct.m; path = Model/BYShopifyProduct.m; sourceTree = "<group>"; };
+		BE9FADDB1465BB5B00BECEF6 /* LLStoreWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStoreWrapper.h; sourceTree = "<group>"; };
+		BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLStoreWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,7 @@
 			children = (
 				BE9FADC8146580B700BECEF6 /* Model */,
 				BE9FAC2C146354EE00BECEF6 /* ASIHTTPRequest */,
+				BE9FADDA1465BB5B00BECEF6 /* Shopify-Store-Wrapper */,
 				BE9FAC7F146354EE00BECEF6 /* BYAppDelegate.h */,
 				BE9FAC80146354EE00BECEF6 /* BYAppDelegate.m */,
 				BE9FAC81146354EE00BECEF6 /* BYViewController.h */,
@@ -433,6 +437,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BE9FADDA1465BB5B00BECEF6 /* Shopify-Store-Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FADDB1465BB5B00BECEF6 /* LLStoreWrapper.h */,
+				BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */,
+			);
+			path = "Shopify-Store-Wrapper";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -538,6 +551,7 @@
 				BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */,
 				BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */,
 				BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */,
+				BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
