@@ -10,6 +10,9 @@
 #import "LLStoreWrapper.h"
 #import "BYShopifyVariant.h"
 
-@interface BYViewController : UIViewController <LLStoreDelegate>
+@interface BYViewController : UITableViewController <LLStoreDelegate>
 
+
+
+@property (nonatomic, strong) NSArray *shopifyProducts;
 @end

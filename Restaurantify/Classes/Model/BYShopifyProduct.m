@@ -46,7 +46,6 @@
                 [variants addObject:shopifyVariant];
             }
             
-//            [jsonVariants release];
             
         } else if ([key isEqualToString:@"images"]) {
         
@@ -58,7 +57,6 @@
                 [variants addObject:shopifyImage];
             }
             
-//            [jsonImages release];
         
         } else if ([key isEqualToString:@"tags"]) {
             [self setTags:value];

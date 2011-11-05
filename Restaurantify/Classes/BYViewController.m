@@ -12,6 +12,8 @@
 
 
 @implementation BYViewController
+@synthesize shopifyProducts;
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -74,11 +76,12 @@
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSArray *)products {
     //You can log the products by doing NSLog(@"%@", products);
+    shopifyProducts = products;
     
     for (BYShopifyProduct *product in products) {
         NSLog(@"%@",product.title);
     }
-    
+    [self.tableView reloadData];
 //    NSLog(@"%@", products);
     
 }
@@ -91,5 +94,38 @@
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg{}
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure{}
+
+
+#pragma mark Table View Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [shopifyProducts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    }
+    BYShopifyProduct *product = [shopifyProducts objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = product.title;
+    cell.detailTextLabel.text = product.productType;
+    
+    
+    return cell;
+}
+
 
 @end
