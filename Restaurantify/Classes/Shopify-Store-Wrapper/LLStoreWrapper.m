@@ -13,6 +13,7 @@
 
 @synthesize delegate;
 
+// These are credentials created for my Dev Shop. These will not work for every store.
 static NSString *APIKey = @"cb3c0912c7b83d215a0220b09cff4533";
 static NSString *password = @"238b4a24546cdd87c49b3a73ba1a5404";
 static NSString *baseURL = @"zulauf-okon7796.myshopify.com/admin/";
