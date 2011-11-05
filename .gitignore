@@ -8,6 +8,6 @@ build/
 *.perspective
 *.perspectivev3
 
-xcuserdata/
+xcuserdata
 
 will.xcuserdatad
