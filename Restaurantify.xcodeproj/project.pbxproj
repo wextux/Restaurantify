@@ -55,7 +55,6 @@
 		BE9FACE21463580900BECEF6 /* README-GHUnit in Resources */ = {isa = PBXBuildFile; fileRef = BE9FACDE1463580900BECEF6 /* README-GHUnit */; };
 		BE9FACE31463580900BECEF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FACE11463580900BECEF6 /* Reachability.m */; };
 		BE9FACE81463592C00BECEF6 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FACE71463592C00BECEF6 /* libxml2.2.dylib */; };
-		BE9FADC714643B6200BECEF6 /* LLStoreWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADC614643B6200BECEF6 /* LLStoreWrapper.m */; };
 		BE9FADCB1465810200BECEF6 /* BYShopifyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADCA1465810200BECEF6 /* BYShopifyObject.m */; };
 		BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADCD1465835B00BECEF6 /* BYShopifyImage.m */; };
 		BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */; };
@@ -155,8 +154,6 @@
 		BE9FACE01463580900BECEF6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BE9FACE11463580900BECEF6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		BE9FACE71463592C00BECEF6 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		BE9FADC514643B6200BECEF6 /* LLStoreWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStoreWrapper.h; sourceTree = "<group>"; };
-		BE9FADC614643B6200BECEF6 /* LLStoreWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLStoreWrapper.m; sourceTree = "<group>"; };
 		BE9FADC91465810200BECEF6 /* BYShopifyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BYShopifyObject.h; path = Model/BYShopifyObject.h; sourceTree = "<group>"; };
 		BE9FADCA1465810200BECEF6 /* BYShopifyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyObject.m; path = Model/BYShopifyObject.m; sourceTree = "<group>"; };
 		BE9FADCC1465835B00BECEF6 /* BYShopifyImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BYShopifyImage.h; path = Model/BYShopifyImage.h; sourceTree = "<group>"; };
@@ -246,7 +243,6 @@
 			children = (
 				BE9FADC8146580B700BECEF6 /* Model */,
 				BE9FAC2C146354EE00BECEF6 /* ASIHTTPRequest */,
-				BE9FADC414643B6200BECEF6 /* Shopify-Store-Wrapper */,
 				BE9FAC7F146354EE00BECEF6 /* BYAppDelegate.h */,
 				BE9FAC80146354EE00BECEF6 /* BYAppDelegate.m */,
 				BE9FAC81146354EE00BECEF6 /* BYViewController.h */,
@@ -422,15 +418,6 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		BE9FADC414643B6200BECEF6 /* Shopify-Store-Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-				BE9FADC514643B6200BECEF6 /* LLStoreWrapper.h */,
-				BE9FADC614643B6200BECEF6 /* LLStoreWrapper.m */,
-			);
-			path = "Shopify-Store-Wrapper";
-			sourceTree = "<group>";
-		};
 		BE9FADC8146580B700BECEF6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +534,6 @@
 				BE9FACD01463555200BECEF6 /* CJSONScanner.m in Sources */,
 				BE9FACD11463555200BECEF6 /* CJSONSerializer.m in Sources */,
 				BE9FACE31463580900BECEF6 /* Reachability.m in Sources */,
-				BE9FADC714643B6200BECEF6 /* LLStoreWrapper.m in Sources */,
 				BE9FADCB1465810200BECEF6 /* BYShopifyObject.m in Sources */,
 				BE9FADCE1465835B00BECEF6 /* BYShopifyImage.m in Sources */,
 				BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */,
@@ -675,6 +661,7 @@
 				BE9FAC2A1463549900BECEF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
