@@ -50,11 +50,11 @@
         } else if ([key isEqualToString:@"images"]) {
         
             NSArray *jsonImages = (NSArray*)value;
-            variants = [[NSMutableArray alloc] initWithCapacity:[jsonImages count]];
+            images = [[NSMutableArray alloc] initWithCapacity:[jsonImages count]];
             
             for (NSDictionary *image in jsonImages) {
                 BYShopifyImage *shopifyImage = [[BYShopifyImage alloc] initWithDictionary:image];
-                [variants addObject:shopifyImage];
+                [images addObject:shopifyImage];
             }
             
         
