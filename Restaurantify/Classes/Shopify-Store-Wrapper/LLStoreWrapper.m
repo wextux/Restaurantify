@@ -9,6 +9,15 @@
 #import "LLStoreWrapper.h"
 #import "CJSONDeserializer.h"
 #import "BYShopifyProduct.h"
+
+@interface LLStoreWrapper ()
+
+-(void)getProductsWithURLString:(NSString *)urlString andReturnType:(NSString *)returnType;
+@end
+    
+
+
+
 @implementation LLStoreWrapper
 
 @synthesize delegate;
@@ -62,6 +71,53 @@ static NSString *returnFormat = @"json";
 	[request startAsynchronous];
     
 }
+
+-(void)getProductsWithProductType:(NSString *)productType {
+    NSString *returnType = @"products";
+    NSString *searchStr = [NSString stringWithFormat:@"?product_type=%@",productType];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@:%@@%@%@.%@%@", APIKey, password, baseURL, returnType, returnFormat, searchStr];
+    
+    [self getProductsWithURLString:urlString andReturnType:returnType];
+}
+
+-(void)getProductsWithURLString:(NSString *)urlString andReturnType:(NSString *)returnType {
+
+	NSLog(@"%@", urlString);
+	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlString]];
+	[request setTimeOutSeconds:30];
+	//[request setStringEncoding:NSUTF8StringEncoding];
+	[request setNumberOfTimesToRetryOnTimeout:1];
+	[request setCompletionBlock:^{
+		NSError *error;
+		
+		if ([delegate respondsToSelector:@selector(storeWrapper:finishedGettingProducts:)]) {
+            
+            
+            NSArray *jsonProducts = [[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType];
+            NSMutableArray *shopifyProducts = [[NSMutableArray alloc] initWithCapacity:[jsonProducts count]];
+            
+            for (NSDictionary *product in jsonProducts) {
+                BYShopifyProduct *shopifyProduct = [[BYShopifyProduct alloc] initWithDictionary:product];
+                [shopifyProducts addObject:shopifyProduct];
+            }
+			[delegate storeWrapper:self finishedGettingProducts:shopifyProducts];
+            //[shopifyProducts release];
+		}
+		
+	}];
+	[request setFailedBlock:^{
+		NSError *error;
+		
+		if ([delegate respondsToSelector:@selector(storeWrapper:failedGettingProducts:)]) {
+			[delegate storeWrapper:self failedGettingProducts:
+			 [[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error]];
+		}
+		
+	}];
+	request_ = request;
+	[request startAsynchronous];
+}
+
 
 
 -(void)getOrders {

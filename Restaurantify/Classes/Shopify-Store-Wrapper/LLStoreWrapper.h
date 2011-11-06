@@ -14,7 +14,7 @@
 @protocol LLStoreDelegate <NSObject>
 
 // Products
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSArray *)products;
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSMutableArray *)products;
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingProducts:(NSDictionary *)failure;
 
 // Orders
@@ -39,6 +39,8 @@
 
 
 -(void)getProducts;
+
+-(void)getProductsWithProductType:(NSString *)productType;
 
 -(void)getOrders;
 

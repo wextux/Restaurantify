@@ -60,6 +60,8 @@
 		BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */; };
 		BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */; };
 		BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */; };
+		BE9FADE41465D87600BECEF6 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */; };
+		BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,9 @@
 		BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyProduct.m; path = Model/BYShopifyProduct.m; sourceTree = "<group>"; };
 		BE9FADDB1465BB5B00BECEF6 /* LLStoreWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStoreWrapper.h; sourceTree = "<group>"; };
 		BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLStoreWrapper.m; sourceTree = "<group>"; };
+		BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
+		BE9FADE51465DAA400BECEF6 /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
+		BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +228,6 @@
 			children = (
 				BE9FAC2B146354EE00BECEF6 /* Classes */,
 				BE9FAC86146354EE00BECEF6 /* Resources */,
-				BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */,
-				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
 				BE9FAC121463549900BECEF6 /* Supporting Files */,
 			);
 			path = Restaurantify;
@@ -251,6 +254,8 @@
 				BE9FAC80146354EE00BECEF6 /* BYAppDelegate.m */,
 				BE9FAC81146354EE00BECEF6 /* BYViewController.h */,
 				BE9FAC82146354EE00BECEF6 /* BYViewController.m */,
+				BE9FADE51465DAA400BECEF6 /* MenuItemCell.h */,
+				BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -340,6 +345,9 @@
 		BE9FAC86146354EE00BECEF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */,
+				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
+				BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -501,6 +509,7 @@
 				BE9FAC221463549900BECEF6 /* BYViewController_iPhone.xib in Resources */,
 				BE9FAC251463549900BECEF6 /* BYViewController_iPad.xib in Resources */,
 				BE9FACE21463580900BECEF6 /* README-GHUnit in Resources */,
+				BE9FADE41465D87600BECEF6 /* MenuItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +561,7 @@
 				BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */,
 				BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */,
 				BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */,
+				BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +582,7 @@
 				BE9FAC211463549900BECEF6 /* en */,
 			);
 			name = BYViewController_iPhone.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */ = {
@@ -580,6 +591,7 @@
 				BE9FAC241463549900BECEF6 /* en */,
 			);
 			name = BYViewController_iPad.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
