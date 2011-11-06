@@ -10,7 +10,7 @@
 
 @implementation MenuItemCell
 @synthesize textLabel, detailLabel, thumbnailImage;
-
+@synthesize indicatorView;
 
 #pragma mark - View lifecycle
 

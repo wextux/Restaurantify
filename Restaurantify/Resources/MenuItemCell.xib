@@ -15,6 +15,7 @@
 			<string>IBUITableViewCell</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
+			<string>IBUIActivityIndicatorView</string>
 			<string>IBProxyObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -123,6 +124,21 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
+							<object class="IBUIActivityIndicatorView" id="466623082">
+								<reference key="NSNextResponder" ref="879800973"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{52, 46}, {37, 37}}</string>
+								<reference key="NSSuperview" ref="879800973"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:1062</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIStyle">0</int>
+								<object class="NSColor" key="IBUIColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC40OTI3MDA3Mjk5AA</bytes>
+								</object>
+							</object>
 						</array>
 						<string key="NSFrameSize">{600, 132}</string>
 						<reference key="NSSuperview" ref="1002037590"/>
@@ -184,6 +200,14 @@
 					</object>
 					<int key="connectionID">10</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">indicatorView</string>
+						<reference key="source" ref="1002037590"/>
+						<reference key="destination" ref="466623082"/>
+					</object>
+					<int key="connectionID">12</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -211,6 +235,7 @@
 							<reference ref="713264363"/>
 							<reference ref="916182391"/>
 							<reference ref="398602619"/>
+							<reference ref="466623082"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -229,6 +254,11 @@
 						<reference key="object" ref="398602619"/>
 						<reference key="parent" ref="1002037590"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">11</int>
+						<reference key="object" ref="466623082"/>
+						<reference key="parent" ref="1002037590"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -236,6 +266,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="2.CustomClassName">MenuItemCell</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -246,7 +277,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">10</int>
+			<int key="maxID">12</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -274,6 +305,7 @@
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="detailLabel">UITextView</string>
+						<string key="indicatorView">UIActivityIndicatorView</string>
 						<string key="textLabel">UILabel</string>
 						<string key="thumbnailImage">UIImageView</string>
 					</dictionary>
@@ -281,6 +313,10 @@
 						<object class="IBToOneOutletInfo" key="detailLabel">
 							<string key="name">detailLabel</string>
 							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="indicatorView">
+							<string key="name">indicatorView</string>
+							<string key="candidateClassName">UIActivityIndicatorView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="textLabel">
 							<string key="name">textLabel</string>

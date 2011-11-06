@@ -16,5 +16,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *textLabel;
 @property (nonatomic, strong) IBOutlet UITextView *detailLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImage;
-
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *indicatorView;
 @end

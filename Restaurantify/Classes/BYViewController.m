@@ -42,8 +42,7 @@ dispatch_queue_t backgroundQueue;
     
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
-    [storeWrapper getProductsWithProductType:@"Lunch"];
-    backgroundQueue = dispatch_queue_create("com.razeware.imagegrabber.bgqueue", NULL); 
+    [storeWrapper getProductsWithProductType:@"Breakfast"];
 }
 
 - (void)viewDidUnload
@@ -157,10 +156,19 @@ dispatch_queue_t backgroundQueue;
     description = [description stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
     cell.detailLabel.text = description;
     
+    backgroundQueue = dispatch_queue_create("com.boneyard.imagefetcher.bgqueue", NULL); 
+    [cell.indicatorView startAnimating];
+    
     dispatch_async(backgroundQueue, ^(void) {
         NSString *imageUrl = [(BYShopifyImage *)[product.images objectAtIndex:0] src];
-        [cell.thumbnailImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]]];    
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [cell.thumbnailImage setImage:image];
+            [cell.indicatorView stopAnimating];
+        });
     }); 
+    
+    dispatch_release(backgroundQueue);
   
 }
 
