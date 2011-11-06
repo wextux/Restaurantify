@@ -9,11 +9,21 @@
 #import "BYViewController.h"
 #import "LLStoreWrapper.h"
 #import "BYShopifyProduct.h"
+#import "BYShopifyImage.h"
+#import <dispatch/dispatch.h>
 
+@interface BYViewController () 
+
+- (void)configureCell:(MenuItemCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+dispatch_queue_t backgroundQueue;
 
 @implementation BYViewController
-@synthesize shopifyProducts;
-
+@synthesize shopifyProducts = _shopifyProducts;
+@synthesize menuItemCell;
+@synthesize cellNib;
 
 - (void)didReceiveMemoryWarning
 {
@@ -27,10 +37,13 @@
 {
     [super viewDidLoad];
     
+    menuItemCell = [[MenuItemCell alloc] init];
+    self.cellNib = [UINib nibWithNibName:@"MenuItemCell" bundle:nil];
+    
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
-    [storeWrapper getProducts];
-	// Do any additional setup after loading the view, typically from a nib.
+    [storeWrapper getProductsWithProductType:@"Lunch"];
+    backgroundQueue = dispatch_queue_create("com.razeware.imagegrabber.bgqueue", NULL); 
 }
 
 - (void)viewDidUnload
@@ -43,6 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,13 +84,19 @@
     }
 }
 
+- (void)dealloc {
+    dispatch_release(backgroundQueue);
+    [super dealloc];
+}
+
 
 #pragma LLStoreWrapperDelegate
 
 
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSArray *)products {
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSMutableArray *)products {
     //You can log the products by doing NSLog(@"%@", products);
-    shopifyProducts = products;
+
+    _shopifyProducts = (NSMutableArray *)products;
     
     for (BYShopifyProduct *product in products) {
         NSLog(@"%@",product.title);
@@ -92,14 +112,14 @@
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingOrders:(NSArray *)orders {}
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg{}
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure{}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure {}
 
 
 #pragma mark Table View Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    return 133;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -108,23 +128,40 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [shopifyProducts count];
+    //NSLog(@"%@",[_shopifyProducts count]);
+    return [_shopifyProducts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MenuItemCell *cell = (MenuItemCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        [self.cellNib instantiateWithOwner:self options:nil];
+        cell = menuItemCell;
+        //cell = [[[MenuItemCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    BYShopifyProduct *product = [shopifyProducts objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = product.title;
-    cell.detailTextLabel.text = product.productType;
     
     
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (void)configureCell:(MenuItemCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    BYShopifyProduct *product = [_shopifyProducts objectAtIndex:indexPath.row];
+    NSLog(@"%@",product.title);
+    cell.textLabel.text = product.title;
+    NSString *description = [product.bodyHTML stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+    description = [description stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+    description = [description stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+    cell.detailLabel.text = description;
+    
+    dispatch_async(backgroundQueue, ^(void) {
+        NSString *imageUrl = [(BYShopifyImage *)[product.images objectAtIndex:0] src];
+        [cell.thumbnailImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]]];    
+    }); 
+  
 }
 
 

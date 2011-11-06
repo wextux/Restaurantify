@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "LLStoreWrapper.h"
 #import "BYShopifyVariant.h"
+#import "MenuItemCell.h"
 
 @interface BYViewController : UITableViewController <LLStoreDelegate>
 
+@property (nonatomic, retain) UINib *cellNib;
+@property (nonatomic, strong) IBOutlet MenuItemCell *menuItemCell;
+@property (nonatomic, strong) NSMutableArray *shopifyProducts;
 
-
-@property (nonatomic, strong) NSArray *shopifyProducts;
 @end
