@@ -69,6 +69,9 @@
 		BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */; };
 		BE9FADE41465D87600BECEF6 /* MenuItemCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */; };
 		BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */; };
+		BED14C6C146849F500E54060 /* BYMenuItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */; };
+		BED14C7114684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C6F14684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib */; };
+		BED14C7214684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C7014684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +189,10 @@
 		BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell_iPhone.xib; sourceTree = "<group>"; };
 		BE9FADE51465DAA400BECEF6 /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
 		BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
+		BED14C69146849F400E54060 /* BYMenuItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYMenuItemDetailsViewController.h; sourceTree = "<group>"; };
+		BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYMenuItemDetailsViewController.m; sourceTree = "<group>"; };
+		BED14C6F14684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemDetailsViewController_iPad.xib; sourceTree = "<group>"; };
+		BED14C7014684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemDetailsViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +303,8 @@
 				BE9FAC82146354EE00BECEF6 /* BYViewController.m */,
 				BE9FADE51465DAA400BECEF6 /* MenuItemCell.h */,
 				BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */,
+				BED14C69146849F400E54060 /* BYMenuItemDetailsViewController.h */,
+				BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -390,6 +399,8 @@
 				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
 				BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */,
 				BE33CE56146707EC00704178 /* MenuItemCell_iPad.xib */,
+				BED14C6F14684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib */,
+				BED14C7014684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -556,6 +567,8 @@
 				BE33CE691467265600704178 /* blackArrow.png in Resources */,
 				BE33CE6A1467265600704178 /* blueArrow.png in Resources */,
 				BE33CE6B1467265600704178 /* whiteArrow.png in Resources */,
+				BED14C7114684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib in Resources */,
+				BED14C7214684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +623,7 @@
 				BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */,
 				BE33CE611467210800704178 /* EGORefreshTableHeaderView.m in Sources */,
 				BE33CE621467210800704178 /* EGOTableViewPullRefresh.m in Sources */,
+				BED14C6C146849F500E54060 /* BYMenuItemDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

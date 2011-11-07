@@ -14,15 +14,9 @@
 #define kPullToReloadStatus 1
 #define kLoadingStatus 2
 
-@interface EGOTableViewPullRefresh () {
-    CGFloat rowHeight;
-}
-
-@end
-
 @implementation EGOTableViewPullRefresh 
 
-- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     CGFloat width = 320.0f;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -41,31 +35,11 @@
 	return self;
 }
 
-- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style heightForRows:(CGFloat)height {
-    CGFloat width = 320.0f;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        width = 320.0f;
-    } else {
-        width = 768.0f;
-    }
-    
-	if (self = [super initWithFrame:frame style:style]){
-		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.bounds.size.height, width, self.bounds.size.height)];
-		refreshHeaderView.backgroundColor = [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0];
-		[self addSubview:refreshHeaderView];
-		self.showsVerticalScrollIndicator = YES;
-        rowHeight = height;
-		[refreshHeaderView release];
-	}
-	return self;
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView; {
 	checkForRefresh = YES;  //  only check offset when dragging 
 } 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {	
 	if (checkForRefresh) {
 		if (refreshHeaderView.isFlipped && scrollView.contentOffset.y > -65.0f && scrollView.contentOffset.y < 0.0f && !reloading) {
 			[refreshHeaderView flipImageAnimated:YES];
@@ -77,7 +51,7 @@
 	}
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 	if (scrollView.contentOffset.y <= - 65.0f) {
 		if([self.dataSource respondsToSelector:@selector(reloadTableViewDataSource)]){
 			reloading = YES;
@@ -92,7 +66,7 @@
 	checkForRefresh = NO;
 }
 
-- (void)dataSourceDidFinishLoadingNewData{
+- (void)dataSourceDidFinishLoadingNewData {
 	reloading = NO;
 	[refreshHeaderView flipImageAnimated:NO];
 	[UIView beginAnimations:nil context:NULL];
@@ -104,10 +78,6 @@
 	[refreshHeaderView setCurrentDate];
 }
 
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return rowHeight;
-}
 
 - (void)dealloc {
 	refreshHeaderView = nil;

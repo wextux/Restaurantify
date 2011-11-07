@@ -22,6 +22,7 @@
 @property (nonatomic, strong) IBOutlet MenuItemCell *menuItemCell;
 @property (nonatomic, strong) NSMutableArray *shopifyProducts;
 @property (nonatomic, strong) IBOutlet EGOTableViewPullRefresh *egoTableView;
+@property (nonatomic, strong) UINavigationController *navController;
 
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;

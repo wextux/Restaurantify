@@ -12,6 +12,8 @@
 #import "BYShopifyImage.h"
 #import <dispatch/dispatch.h>
 #import "EGOTableViewPullRefresh.h"
+#import "BYMenuItemDetailsViewController.h"
+
 
 @interface BYViewController () 
 
@@ -20,8 +22,13 @@
 @end
 
 dispatch_queue_t backgroundQueue;
-
+@interface BYViewController () {
+@private
+    CGFloat rowHeight;
+}
+@end
 @implementation BYViewController
+@synthesize navController = _navController;
 @synthesize shopifyProducts = _shopifyProducts;
 @synthesize menuItemCell;
 @synthesize cellNib;
@@ -44,17 +51,17 @@ dispatch_queue_t backgroundQueue;
 
     menuItemCell = [[MenuItemCell alloc] init];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        rowHeight = 87.0;
         self.cellNib = [UINib nibWithNibName:@"MenuItemCell_iPhone" bundle:nil];
-        egoTableView = [[EGOTableViewPullRefresh alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain heightForRows:87.0];
     } else {
+        rowHeight = 133.0;
         self.cellNib = [UINib nibWithNibName:@"MenuItemCell_iPad" bundle:nil];
-        egoTableView = [[EGOTableViewPullRefresh alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain heightForRows:133.0];
     }
     
     
-    
+    egoTableView = [[EGOTableViewPullRefresh alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 	egoTableView.dataSource = self;
-	egoTableView.delegate = egoTableView;
+	egoTableView.delegate = self;
     [self.view addSubview:egoTableView];
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
@@ -105,8 +112,7 @@ dispatch_queue_t backgroundQueue;
 }
 
 
-#pragma LLStoreWrapperDelegate
-
+#pragma mark LLStoreWrapper Delegate
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSMutableArray *)products {
     //You can log the products by doing NSLog(@"%@", products);
@@ -131,7 +137,7 @@ dispatch_queue_t backgroundQueue;
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure {}
 
 
-#pragma mark Table View Delegate
+#pragma mark - TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -185,10 +191,56 @@ dispatch_queue_t backgroundQueue;
 }
 
 
+#pragma mark - TableView Delegate
 
-#pragma mark - EGOTableView Pull Refresh Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return rowHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Select Row: %i", indexPath.row);
+    
+    NSString *nibName;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        nibName = @"MenuItemDetailsViewController_iPhone";
+    } else {
+        nibName = @"MenuItemDetailsViewController_iPad";
+    }
+    
+    BYMenuItemDetailsViewController *menuItemViewController = [[[BYMenuItemDetailsViewController alloc] initWithNibName:nibName bundle:nil] autorelease];
+
+    menuItemViewController.shopifyProdutct = [_shopifyProducts objectAtIndex:indexPath.row];
+    
+    [_navController pushViewController:menuItemViewController animated:YES];
+    
+    [nibName release];
+}
+
+
+#pragma mark - EGOTableView Forward Delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView; {
+	[egoTableView scrollViewWillBeginDragging:scrollView];
+} 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {	
+	[egoTableView scrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+	[egoTableView scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+
+
+#pragma mark - EGOTableViewPullRefresh Delegate
 
 - (void)reloadTableViewDataSource{
+    _shopifyProducts = nil;
+    LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
+    [storeWrapper setDelegate:self];
+    [storeWrapper getProductsWithProductType:@"Lunch"];
+    
 	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
 }
 

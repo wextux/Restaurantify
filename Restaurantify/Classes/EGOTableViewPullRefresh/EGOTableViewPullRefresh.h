@@ -17,7 +17,7 @@
 	BOOL reloading;
 	BOOL checkForRefresh;
 }
-- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style heightForRows:(CGFloat)height;
+
 - (void)dataSourceDidFinishLoadingNewData;
 @end
 
