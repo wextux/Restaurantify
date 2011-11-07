@@ -11,10 +11,18 @@
 #import "BYShopifyVariant.h"
 #import "MenuItemCell.h"
 
-@interface BYViewController : UITableViewController <LLStoreDelegate>
+@class EGOTableViewPullRefresh;
+@interface BYViewController : UIViewController <LLStoreDelegate, UITableViewDelegate, UITableViewDataSource> {
+    
+    IBOutlet EGOTableViewPullRefresh *egoTableView;
+    
+}
 
-@property (nonatomic, retain) UINib *cellNib;
+@property (nonatomic, strong) UINib *cellNib;
 @property (nonatomic, strong) IBOutlet MenuItemCell *menuItemCell;
 @property (nonatomic, strong) NSMutableArray *shopifyProducts;
+@property (nonatomic, strong) IBOutlet EGOTableViewPullRefresh *egoTableView;
 
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 @end

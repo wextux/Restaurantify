@@ -11,6 +11,7 @@
 #import "BYShopifyProduct.h"
 #import "BYShopifyImage.h"
 #import <dispatch/dispatch.h>
+#import "EGOTableViewPullRefresh.h"
 
 @interface BYViewController () 
 
@@ -24,6 +25,7 @@ dispatch_queue_t backgroundQueue;
 @synthesize shopifyProducts = _shopifyProducts;
 @synthesize menuItemCell;
 @synthesize cellNib;
+@synthesize egoTableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,10 +38,24 @@ dispatch_queue_t backgroundQueue;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Menu";
     
+
+
     menuItemCell = [[MenuItemCell alloc] init];
-    self.cellNib = [UINib nibWithNibName:@"MenuItemCell" bundle:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.cellNib = [UINib nibWithNibName:@"MenuItemCell_iPhone" bundle:nil];
+        egoTableView = [[EGOTableViewPullRefresh alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain heightForRows:87.0];
+    } else {
+        self.cellNib = [UINib nibWithNibName:@"MenuItemCell_iPad" bundle:nil];
+        egoTableView = [[EGOTableViewPullRefresh alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain heightForRows:133.0];
+    }
     
+    
+    
+	egoTableView.dataSource = self;
+	egoTableView.delegate = egoTableView;
+    [self.view addSubview:egoTableView];
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
     [storeWrapper getProductsWithProductType:@"Breakfast"];
@@ -100,7 +116,7 @@ dispatch_queue_t backgroundQueue;
     for (BYShopifyProduct *product in products) {
         NSLog(@"%@",product.title);
     }
-    [self.tableView reloadData];
+    [egoTableView reloadData];
 //    NSLog(@"%@", products);
     
 }
@@ -117,10 +133,6 @@ dispatch_queue_t backgroundQueue;
 
 #pragma mark Table View Delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 133;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -134,7 +146,7 @@ dispatch_queue_t backgroundQueue;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    MenuItemCell *cell = (MenuItemCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MenuItemCell *cell = (MenuItemCell *)[egoTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         [self.cellNib instantiateWithOwner:self options:nil];
         cell = menuItemCell;
@@ -170,6 +182,19 @@ dispatch_queue_t backgroundQueue;
     
     dispatch_release(backgroundQueue);
   
+}
+
+
+
+#pragma mark - EGOTableView Pull Refresh Delegate
+
+- (void)reloadTableViewDataSource{
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
+}
+
+
+- (void)doneLoadingTableViewData{
+	[egoTableView dataSourceDidFinishLoadingNewData];
 }
 
 

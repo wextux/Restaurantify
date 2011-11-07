@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE33CE57146707EC00704178 /* MenuItemCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE33CE56146707EC00704178 /* MenuItemCell_iPad.xib */; };
+		BE33CE611467210800704178 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE33CE5E1467210800704178 /* EGORefreshTableHeaderView.m */; };
+		BE33CE621467210800704178 /* EGOTableViewPullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BE33CE601467210800704178 /* EGOTableViewPullRefresh.m */; };
+		BE33CE64146721C500704178 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE33CE63146721C500704178 /* QuartzCore.framework */; };
+		BE33CE691467265600704178 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BE33CE661467265600704178 /* blackArrow.png */; };
+		BE33CE6A1467265600704178 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BE33CE671467265600704178 /* blueArrow.png */; };
+		BE33CE6B1467265600704178 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BE33CE681467265600704178 /* whiteArrow.png */; };
 		BE9FAC0C1463549900BECEF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0B1463549900BECEF6 /* UIKit.framework */; };
 		BE9FAC0E1463549900BECEF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0D1463549900BECEF6 /* Foundation.framework */; };
 		BE9FAC101463549900BECEF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FAC0F1463549900BECEF6 /* CoreGraphics.framework */; };
@@ -60,11 +67,20 @@
 		BE9FADD11465844000BECEF6 /* BYShopifyVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD01465844000BECEF6 /* BYShopifyVariant.m */; };
 		BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */; };
 		BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */; };
-		BE9FADE41465D87600BECEF6 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */; };
+		BE9FADE41465D87600BECEF6 /* MenuItemCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */; };
 		BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE33CE56146707EC00704178 /* MenuItemCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell_iPad.xib; sourceTree = "<group>"; };
+		BE33CE5D1467210800704178 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		BE33CE5E1467210800704178 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		BE33CE5F1467210800704178 /* EGOTableViewPullRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTableViewPullRefresh.h; sourceTree = "<group>"; };
+		BE33CE601467210800704178 /* EGOTableViewPullRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTableViewPullRefresh.m; sourceTree = "<group>"; };
+		BE33CE63146721C500704178 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE33CE661467265600704178 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		BE33CE671467265600704178 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		BE33CE681467265600704178 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		BE9FAC071463549900BECEF6 /* Restaurantify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurantify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE9FAC0B1463549900BECEF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE9FAC0D1463549900BECEF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,7 +183,7 @@
 		BE9FADD31465951F00BECEF6 /* BYShopifyProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BYShopifyProduct.m; path = Model/BYShopifyProduct.m; sourceTree = "<group>"; };
 		BE9FADDB1465BB5B00BECEF6 /* LLStoreWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStoreWrapper.h; sourceTree = "<group>"; };
 		BE9FADDC1465BB5B00BECEF6 /* LLStoreWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLStoreWrapper.m; sourceTree = "<group>"; };
-		BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
+		BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell_iPhone.xib; sourceTree = "<group>"; };
 		BE9FADE51465DAA400BECEF6 /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
 		BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE33CE64146721C500704178 /* QuartzCore.framework in Frameworks */,
 				BE9FACE81463592C00BECEF6 /* libxml2.2.dylib in Frameworks */,
 				BE9FACDB1463568F00BECEF6 /* libz.dylib in Frameworks */,
 				BE9FACD91463567000BECEF6 /* MobileCoreServices.framework in Frameworks */,
@@ -191,6 +208,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE33CE5C1467210800704178 /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				BE33CE5D1467210800704178 /* EGORefreshTableHeaderView.h */,
+				BE33CE5E1467210800704178 /* EGORefreshTableHeaderView.m */,
+				BE33CE5F1467210800704178 /* EGOTableViewPullRefresh.h */,
+				BE33CE601467210800704178 /* EGOTableViewPullRefresh.m */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		BE33CE651467265600704178 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BE33CE661467265600704178 /* blackArrow.png */,
+				BE33CE671467265600704178 /* blueArrow.png */,
+				BE33CE681467265600704178 /* whiteArrow.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		BE9FABFC1463549900BECEF6 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +251,7 @@
 			children = (
 				BE9FACDA1463568F00BECEF6 /* libz.dylib */,
 				BE9FACE71463592C00BECEF6 /* libxml2.2.dylib */,
+				BE33CE63146721C500704178 /* QuartzCore.framework */,
 				BE9FACD81463567000BECEF6 /* MobileCoreServices.framework */,
 				BE9FACD61463566100BECEF6 /* SystemConfiguration.framework */,
 				BE9FACD41463565800BECEF6 /* CFNetwork.framework */,
@@ -247,6 +286,7 @@
 		BE9FAC2B146354EE00BECEF6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE33CE5C1467210800704178 /* EGOTableViewPullRefresh */,
 				BE9FADC8146580B700BECEF6 /* Model */,
 				BE9FAC2C146354EE00BECEF6 /* ASIHTTPRequest */,
 				BE9FADDA1465BB5B00BECEF6 /* Shopify-Store-Wrapper */,
@@ -345,9 +385,11 @@
 		BE9FAC86146354EE00BECEF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE33CE651467265600704178 /* Images */,
 				BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */,
 				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
-				BE9FADE31465D87600BECEF6 /* MenuItemCell.xib */,
+				BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */,
+				BE33CE56146707EC00704178 /* MenuItemCell_iPad.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -509,7 +551,11 @@
 				BE9FAC221463549900BECEF6 /* BYViewController_iPhone.xib in Resources */,
 				BE9FAC251463549900BECEF6 /* BYViewController_iPad.xib in Resources */,
 				BE9FACE21463580900BECEF6 /* README-GHUnit in Resources */,
-				BE9FADE41465D87600BECEF6 /* MenuItemCell.xib in Resources */,
+				BE9FADE41465D87600BECEF6 /* MenuItemCell_iPhone.xib in Resources */,
+				BE33CE57146707EC00704178 /* MenuItemCell_iPad.xib in Resources */,
+				BE33CE691467265600704178 /* blackArrow.png in Resources */,
+				BE33CE6A1467265600704178 /* blueArrow.png in Resources */,
+				BE33CE6B1467265600704178 /* whiteArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +608,8 @@
 				BE9FADD41465951F00BECEF6 /* BYShopifyProduct.m in Sources */,
 				BE9FADDD1465BB5B00BECEF6 /* LLStoreWrapper.m in Sources */,
 				BE9FADE81465DAA500BECEF6 /* MenuItemCell.m in Sources */,
+				BE33CE611467210800704178 /* EGORefreshTableHeaderView.m in Sources */,
+				BE33CE621467210800704178 /* EGOTableViewPullRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
