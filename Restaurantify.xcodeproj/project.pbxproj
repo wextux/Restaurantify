@@ -72,6 +72,9 @@
 		BED14C6C146849F500E54060 /* BYMenuItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */; };
 		BED14C7114684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C6F14684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib */; };
 		BED14C7214684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C7014684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib */; };
+		BED14C8214698C8300E54060 /* BYCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED14C8014698C8200E54060 /* BYCartViewController.m */; };
+		BED14C8714698CC700E54060 /* CartViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C8514698CC700E54060 /* CartViewController_iPad.xib */; };
+		BED14C8814698CC700E54060 /* CartViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED14C8614698CC700E54060 /* CartViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +196,10 @@
 		BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYMenuItemDetailsViewController.m; sourceTree = "<group>"; };
 		BED14C6F14684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemDetailsViewController_iPad.xib; sourceTree = "<group>"; };
 		BED14C7014684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemDetailsViewController_iPhone.xib; sourceTree = "<group>"; };
+		BED14C7F14698C8100E54060 /* BYCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYCartViewController.h; sourceTree = "<group>"; };
+		BED14C8014698C8200E54060 /* BYCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYCartViewController.m; sourceTree = "<group>"; };
+		BED14C8514698CC700E54060 /* CartViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController_iPad.xib; sourceTree = "<group>"; };
+		BED14C8614698CC700E54060 /* CartViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +312,8 @@
 				BE9FADE61465DAA400BECEF6 /* MenuItemCell.m */,
 				BED14C69146849F400E54060 /* BYMenuItemDetailsViewController.h */,
 				BED14C6A146849F400E54060 /* BYMenuItemDetailsViewController.m */,
+				BED14C7F14698C8100E54060 /* BYCartViewController.h */,
+				BED14C8014698C8200E54060 /* BYCartViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -395,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				BE33CE651467265600704178 /* Images */,
+				BED14C8514698CC700E54060 /* CartViewController_iPad.xib */,
+				BED14C8614698CC700E54060 /* CartViewController_iPhone.xib */,
 				BE9FAC201463549900BECEF6 /* BYViewController_iPhone.xib */,
 				BE9FAC231463549900BECEF6 /* BYViewController_iPad.xib */,
 				BE9FADE31465D87600BECEF6 /* MenuItemCell_iPhone.xib */,
@@ -569,6 +580,8 @@
 				BE33CE6B1467265600704178 /* whiteArrow.png in Resources */,
 				BED14C7114684C1E00E54060 /* MenuItemDetailsViewController_iPad.xib in Resources */,
 				BED14C7214684C1E00E54060 /* MenuItemDetailsViewController_iPhone.xib in Resources */,
+				BED14C8714698CC700E54060 /* CartViewController_iPad.xib in Resources */,
+				BED14C8814698CC700E54060 /* CartViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +637,7 @@
 				BE33CE611467210800704178 /* EGORefreshTableHeaderView.m in Sources */,
 				BE33CE621467210800704178 /* EGOTableViewPullRefresh.m in Sources */,
 				BED14C6C146849F500E54060 /* BYMenuItemDetailsViewController.m in Sources */,
+				BED14C8214698C8300E54060 /* BYCartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
