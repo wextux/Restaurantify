@@ -9,7 +9,7 @@
 #import "MenuItemCell.h"
 
 @implementation MenuItemCell
-@synthesize textLabel, detailLabel, thumbnailImage;
+@synthesize textLabel, detailLabel, priceLabel, thumbnailImage;
 @synthesize indicatorView;
 
 #pragma mark - View lifecycle
@@ -26,11 +26,11 @@
 }
 
 -(void)dealloc {
-    NSLog(@"Menu Cell is deallocing");
     [textLabel release];
     [detailLabel release];
     [thumbnailImage release];
     [indicatorView release];
+    [priceLabel release];
     [super dealloc];
 }
 @end

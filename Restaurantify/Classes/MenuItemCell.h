@@ -17,4 +17,5 @@
 @property (nonatomic, strong) IBOutlet UITextView *detailLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImage;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 @end
