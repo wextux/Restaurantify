@@ -167,43 +167,26 @@ static NSString *returnFormat = @"json";
 
 -(void)addItemToCart:(NSNumber *)itemID {
 
-    NSString *cartString = @"zulauf-okon7796.myshopify.com/cart/add/";
-    NSString *urlString = [NSString stringWithFormat:@"http://%@", cartString];
-    
-    NSLog(@"Add to cart url: %@", urlString);
+    NSString *urlString = @"http://zulauf-okon7796.myshopify.com/cart/add/";
     
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSLog(@"Adding item %@ to cart", itemID);
     [request setRequestMethod:@"POST"];
     [request setPostValue:[NSString stringWithFormat:@"%@", itemID] forKey:@"id"];
 	[request setTimeOutSeconds:30];
-	//[request setStringEncoding:NSUTF8StringEncoding];
 	[request setNumberOfTimesToRetryOnTimeout:1];
 
 	[request setCompletionBlock:^{
-		//NSError *error;
-		NSLog(@"Set completion block");
-        NSLog(@"Call completed block\n\n%@", [request responseString]);
 		if ([delegate respondsToSelector:@selector(storeWrapperFinishedAddingItemToCart:withRequest:)]) {
             NSLog(@"Call completed block\n\n%@", [request responseString]);
             [delegate storeWrapperFinishedAddingItemToCart:self withRequest:request];
-			//[delegate storeWrapper:self finishedAddingItemToCart:[NSString stringWithFormat:@"%@", [request responseString]]];
-			 
-             //[[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType]];
 		}
 		
 	}];
 	[request setFailedBlock:^{
-        NSLog(@"Failed to add items to cart\n\n%@", [request responseString]);
 		NSError *error;
 		
         error = [request error];
         NSLog(@"ERROR: %@",error);
-//		if ([delegate respondsToSelector:@selector(storeWrapper:failedAddingItemToCart:)]) {
-//			[delegate storeWrapper:self failedGettingOrders:
-//			 [[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error]];
-//		}
-		
 	}];
 
     
