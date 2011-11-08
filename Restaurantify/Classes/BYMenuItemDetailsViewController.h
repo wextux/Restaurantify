@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BYShopifyProduct.h"
+#import "LLStoreWrapper.h"
 
-
-@interface BYMenuItemDetailsViewController : UIViewController
+@interface BYMenuItemDetailsViewController : UIViewController <LLStoreDelegate>
 
 @property (nonatomic, strong) BYShopifyProduct *shopifyProdutct;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIButton *addToCartButton;
 
+-(IBAction)addItemToCart;
 @end

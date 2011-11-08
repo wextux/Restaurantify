@@ -7,10 +7,12 @@
 //
 
 #import "BYMenuItemDetailsViewController.h"
+#import "BYShopifyVariant.h"
+
 
 @implementation BYMenuItemDetailsViewController
 @synthesize shopifyProdutct = _shopifyProdutct;
-@synthesize titleLabel;
+@synthesize titleLabel, addToCartButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,7 +57,34 @@
 	return YES;
 }
 
+#pragma mark LLStoreWrapper Delegate
+
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSMutableArray *)products {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingProducts:(NSDictionary *)failure {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingOrders:(NSArray *)orders {}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
+-(void)storeWrapperFinishedAddingItemToCart:(LLStoreWrapper *)storeWrapper withRequest:(ASIFormDataRequest *)request {
+    NSLog(@"URL: %@", [request url]);
+}
+-(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure {
+    NSLog(@"Failure: %@", failure);
+}
+
+
+#pragma mark - Actions
+
+
+-(IBAction)addItemToCart {
+    LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
+    [storeWrapper setDelegate:self];
+    [storeWrapper addItemToCart:[(BYShopifyVariant *)[[_shopifyProdutct variants] objectAtIndex:0] identifier]];
+    [storeWrapper release];
+}
+
+#pragma mark - Clean Up
+
 -(void)dealloc {
+    [addToCartButton release];
     [titleLabel release];
     [_shopifyProdutct release];
     [super dealloc];

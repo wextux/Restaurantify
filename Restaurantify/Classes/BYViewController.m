@@ -141,7 +141,9 @@ dispatch_queue_t backgroundQueue;
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingOrders:(NSArray *)orders {}
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg {}
+-(void)storeWrapperFinishedAddingItemToCart:(LLStoreWrapper *)storeWrapper withRequest:(ASIFormDataRequest *)request {
+    NSLog(@"URL: %@", [request url]);
+}
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure {}
 
 
