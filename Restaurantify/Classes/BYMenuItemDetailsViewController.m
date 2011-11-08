@@ -55,4 +55,10 @@
 	return YES;
 }
 
+-(void)dealloc {
+    [titleLabel release];
+    [_shopifyProdutct release];
+    [super dealloc];
+}
+
 @end

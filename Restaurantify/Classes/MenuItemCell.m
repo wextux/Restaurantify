@@ -25,4 +25,12 @@
 	return YES;
 }
 
+-(void)dealloc {
+    NSLog(@"Menu Cell is deallocing");
+    [textLabel release];
+    [detailLabel release];
+    [thumbnailImage release];
+    [indicatorView release];
+    [super dealloc];
+}
 @end

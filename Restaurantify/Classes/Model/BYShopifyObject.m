@@ -14,5 +14,14 @@
 @synthesize createdAt;
 @synthesize updatedAt;
 
+
+
+-(void)dealloc {
+    [identifier release];
+    [createdAt release];
+    [updatedAt release];
+    [super dealloc];
+}
+
 @end
 

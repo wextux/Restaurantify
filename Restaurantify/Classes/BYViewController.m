@@ -63,16 +63,21 @@ dispatch_queue_t backgroundQueue;
 	egoTableView.dataSource = self;
 	egoTableView.delegate = self;
     [self.view addSubview:egoTableView];
+    
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
     [storeWrapper getProductsWithProductType:@"Breakfast"];
+    [storeWrapper release];
 }
 
 - (void)viewDidUnload
 {
+    _navController = nil;
+    menuItemCell = nil;
+    cellNib = nil;
+    //egoTableView = nil;
+    _shopifyProducts = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,6 +113,9 @@ dispatch_queue_t backgroundQueue;
 
 - (void)dealloc {
     dispatch_release(backgroundQueue);
+    [_shopifyProducts release];
+    [menuItemCell release];
+    [cellNib release];
     [super dealloc];
 }
 
@@ -115,16 +123,9 @@ dispatch_queue_t backgroundQueue;
 #pragma mark LLStoreWrapper Delegate
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedGettingProducts:(NSMutableArray *)products {
-    //You can log the products by doing NSLog(@"%@", products);
-
-    _shopifyProducts = (NSMutableArray *)products;
-    
-    for (BYShopifyProduct *product in products) {
-        NSLog(@"%@",product.title);
-    }
+    _shopifyProducts = [[NSMutableArray alloc] initWithCapacity:[products count]];
+    [_shopifyProducts addObjectsFromArray:products];
     [egoTableView reloadData];
-//    NSLog(@"%@", products);
-    
 }
 
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingProducts:(NSDictionary *)failure {
@@ -167,7 +168,6 @@ dispatch_queue_t backgroundQueue;
 - (void)configureCell:(MenuItemCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     BYShopifyProduct *product = [_shopifyProducts objectAtIndex:indexPath.row];
-    NSLog(@"%@",product.title);
     cell.textLabel.text = product.title;
     NSString *description = [product.bodyHTML stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
     description = [description stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
@@ -200,7 +200,7 @@ dispatch_queue_t backgroundQueue;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Select Row: %i", indexPath.row);
     
-    NSString *nibName;
+    NSString *nibName = [[NSString alloc] init];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         nibName = @"MenuItemDetailsViewController_iPhone";
     } else {
@@ -208,7 +208,6 @@ dispatch_queue_t backgroundQueue;
     }
     
     BYMenuItemDetailsViewController *menuItemViewController = [[[BYMenuItemDetailsViewController alloc] initWithNibName:nibName bundle:nil] autorelease];
-
     menuItemViewController.shopifyProdutct = [_shopifyProducts objectAtIndex:indexPath.row];
     
     [_navController pushViewController:menuItemViewController animated:YES];
@@ -236,11 +235,13 @@ dispatch_queue_t backgroundQueue;
 #pragma mark - EGOTableViewPullRefresh Delegate
 
 - (void)reloadTableViewDataSource{
-    _shopifyProducts = nil;
+    // Must call release on the Array so that all object in the array are released before it loads up a new list
+    [_shopifyProducts release];
+    
     LLStoreWrapper *storeWrapper = [[LLStoreWrapper alloc] init];
     [storeWrapper setDelegate:self];
     [storeWrapper getProductsWithProductType:@"Lunch"];
-    
+    [storeWrapper release];
 	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
 }
 
@@ -248,6 +249,7 @@ dispatch_queue_t backgroundQueue;
 - (void)doneLoadingTableViewData{
 	[egoTableView dataSourceDidFinishLoadingNewData];
 }
+
 
 
 @end

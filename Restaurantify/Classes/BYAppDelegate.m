@@ -20,6 +20,7 @@
 {
     [_window release];
     [_viewController release];
+    [self.navigationController release];
     [super dealloc];
 }
 
@@ -36,7 +37,7 @@
     }
 
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:self.viewController] autorelease];
     
     self.viewController.navController = self.navigationController;
         

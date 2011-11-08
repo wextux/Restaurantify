@@ -52,9 +52,10 @@ static NSString *returnFormat = @"json";
             for (NSDictionary *product in jsonProducts) {
                 BYShopifyProduct *shopifyProduct = [[BYShopifyProduct alloc] initWithDictionary:product];
                 [shopifyProducts addObject:shopifyProduct];
+                [shopifyProduct release];
             }
 			[delegate storeWrapper:self finishedGettingProducts:shopifyProducts];
-            //[shopifyProducts release];
+            [shopifyProducts release];
 		}
 		
 	}];
@@ -70,6 +71,8 @@ static NSString *returnFormat = @"json";
 	request_ = request;
 	[request startAsynchronous];
     
+    // Memory Management
+    [returnType release];
 }
 
 -(void)getProductsWithProductType:(NSString *)productType {
@@ -78,6 +81,7 @@ static NSString *returnFormat = @"json";
     NSString *urlString = [NSString stringWithFormat:@"http://%@:%@@%@%@.%@%@", APIKey, password, baseURL, returnType, returnFormat, searchStr];
     
     [self getProductsWithURLString:urlString andReturnType:returnType];
+    [returnType release];
 }
 
 -(void)getProductsWithURLString:(NSString *)urlString andReturnType:(NSString *)returnType {
@@ -93,15 +97,17 @@ static NSString *returnFormat = @"json";
 		if ([delegate respondsToSelector:@selector(storeWrapper:finishedGettingProducts:)]) {
             
             
-            NSArray *jsonProducts = [[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType];
+            NSArray *jsonProducts = [[NSArray alloc] init];
+            jsonProducts = [NSArray arrayWithArray:[[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType]];
             NSMutableArray *shopifyProducts = [[NSMutableArray alloc] initWithCapacity:[jsonProducts count]];
             
             for (NSDictionary *product in jsonProducts) {
                 BYShopifyProduct *shopifyProduct = [[BYShopifyProduct alloc] initWithDictionary:product];
                 [shopifyProducts addObject:shopifyProduct];
+                [shopifyProduct release];
             }
 			[delegate storeWrapper:self finishedGettingProducts:shopifyProducts];
-            //[shopifyProducts release];
+            [shopifyProducts release];
 		}
 		
 	}];
@@ -116,6 +122,7 @@ static NSString *returnFormat = @"json";
 	}];
 	request_ = request;
 	[request startAsynchronous];
+    
 }
 
 
@@ -185,11 +192,19 @@ static NSString *returnFormat = @"json";
     
     request_ = request;
 	[request startAsynchronous];
-
+    [request release];
 }
 
 -(void)cancelRequest {
 	[request_ clearDelegatesAndCancel];
+}
+
+-(void)dealloc {
+    [APIKey release];
+    [baseURL release];
+    [password release];
+    [returnFormat release];
+    [super dealloc];
 }
 
 @end

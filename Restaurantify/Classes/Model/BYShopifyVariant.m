@@ -42,6 +42,9 @@
 
 - (void)setObjectWithDictionary:(NSDictionary *)variantDictionary {
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
     for (NSString *key in [variantDictionary allKeys]) {
         id value = [variantDictionary objectForKey:key];
         
@@ -50,15 +53,12 @@
         } else if ([key isEqualToString:@"position"]) {
             [self setPosition:value];
         } else if ([key isEqualToString:@"created_at"]) {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString *dateStr = (NSString *)value;
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"Z" withString:@""];
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
-            [dateFormatter release];
         } else if ([key isEqualToString:@"title"]) {
             [self setTitle:value];
         } else if ([key isEqualToString:@"requires_shipping"]) {
@@ -69,16 +69,12 @@
                 requiresShipping = YES;
             }
         } else if ([key isEqualToString:@"updated_at"]) {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString *dateStr = (NSString *)value;
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"Z" withString:@""];
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
-
-            [dateFormatter release];
         } else if ([key isEqualToString:@"inventory_policy"]) {
             [self setInventoryPolicy:value];
         } else if ([key isEqualToString:@"compare_at_price"]) {
@@ -111,5 +107,24 @@
         }
     
     }
+    
+    [dateFormatter release];
+}
+
+-(void)dealloc {
+    [position release];
+    [price release];
+    [title release];
+    [inventoryPolicy release];
+    [inventoryQuantity release];
+    [inventoryManagement release];
+    [fulfillmentService release];
+    [option1 release];
+    [option2 release];
+    [option3 release];
+    [grams release];
+    [sku release];
+    [compareAtPrice release];
+    [super dealloc];
 }
 @end

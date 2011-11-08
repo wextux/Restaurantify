@@ -26,31 +26,28 @@
 
 - (void)setObjectWithDictionary:(NSDictionary *)jsonImageDictionary {
 
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
     for (NSString *key in [jsonImageDictionary allKeys]) {
         id value = [jsonImageDictionary objectForKey:key];
         
         if ([key isEqualToString:@"position"]) {
             [self setPosition:value];
         } else if ([key isEqualToString:@"created_at"]) {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString *dateStr = (NSString *)value;
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"Z" withString:@""];
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setCreatedAt:date];
-            [dateFormatter release];
         } else if ([key isEqualToString:@"updated_at"]) {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString *dateStr = (NSString *)value;
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             dateStr = [dateStr stringByReplacingOccurrencesOfString:@"Z" withString:@""];
             NSDate *date = [dateFormatter dateFromString:dateStr];
             
             [self setUpdatedAt:date];
-            [dateFormatter release];
         } else if ([key isEqualToString:@"product_id"]) {
             [self setProductId:value];
         } else if ([key isEqualToString:@"src"]) {
@@ -60,5 +57,15 @@
         }
         
     }
+    
+    [dateFormatter release];
+}
+
+
+-(void)dealloc {
+    [position release];
+    [productId release];
+    [src release];
+    [super dealloc];
 }
 @end

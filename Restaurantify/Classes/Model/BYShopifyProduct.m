@@ -44,8 +44,8 @@
             for (NSDictionary *variant in jsonVariants) {
                 BYShopifyVariant *shopifyVariant = [[BYShopifyVariant alloc] initWithDictionary:variant];
                 [variants addObject:shopifyVariant];
+                [shopifyVariant release];
             }
-            
             
         } else if ([key isEqualToString:@"images"]) {
         
@@ -55,9 +55,9 @@
             for (NSDictionary *image in jsonImages) {
                 BYShopifyImage *shopifyImage = [[BYShopifyImage alloc] initWithDictionary:image];
                 [images addObject:shopifyImage];
+                [shopifyImage release];
             }
             
-        
         } else if ([key isEqualToString:@"tags"]) {
             [self setTags:value];
         } else if ([key isEqualToString:@"handle"]) {
@@ -104,6 +104,19 @@
             [self setIdentifier:value];
         }
     }
+}
+
+-(void)dealloc {
+    [variants release];
+    [images release];
+    [tags release];
+    [title release];
+    [handle release];
+    [vendor release];
+    [bodyHTML release];
+    [productType release];
+    [publishedAt release];
+    [super dealloc];
 }
 
 
