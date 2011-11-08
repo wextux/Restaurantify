@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
+#import "ASIHTTPRequestDelegate.h"
 
 @class LLStoreWrapper;
 @protocol LLStoreDelegate <NSObject>
@@ -22,7 +23,7 @@
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure;
 
 // Cart
--(void)storeWrapper:(LLStoreWrapper *)storeWrapper finishedAddingItemToCart:(NSString *)successMsg;
+-(void)storeWrapperFinishedAddingItemToCart:(LLStoreWrapper *)storeWrapper withRequest:(ASIFormDataRequest *)request;
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure;
 
 @end
@@ -32,6 +33,7 @@
 	id<LLStoreDelegate> delegate;
 
 	ASIHTTPRequest *request_;
+    ASIFormDataRequest *formDataRequest_;
 	
 }
 
@@ -44,7 +46,7 @@
 
 -(void)getOrders;
 
--(void)addItemToCart:(NSString *)itemID;
+-(void)addItemToCart:(NSNumber *)itemID;
 
 -(void)cancelRequest;
 

@@ -9,10 +9,15 @@
 #import "LLStoreWrapper.h"
 #import "CJSONDeserializer.h"
 #import "BYShopifyProduct.h"
+#import "ASIFormDataRequest.h"
+
 
 @interface LLStoreWrapper ()
 
 -(void)getProductsWithURLString:(NSString *)urlString andReturnType:(NSString *)returnType;
+//- (IBAction)requestFinished:(ASIHTTPRequest *)request;
+//- (IBAction)requestFailed:(ASIHTTPRequest *)request;
+
 @end
     
 
@@ -160,40 +165,55 @@ static NSString *returnFormat = @"json";
     
 }
 
--(void)addItemToCart:(NSString *)itemID {
+-(void)addItemToCart:(NSNumber *)itemID {
 
-    NSString *returnType = @"cart/add";
-    NSString *urlString = [NSString stringWithFormat:@"http://%@:%@@%@%@", APIKey, password, baseURL, returnType];
+    NSString *cartString = @"zulauf-okon7796.myshopify.com/cart/add/";
+    NSString *urlString = [NSString stringWithFormat:@"http://%@", cartString];
     
+    NSLog(@"Add to cart url: %@", urlString);
     
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlString]];
-    [request setPostValue:itemID forKey:@"id"];
+    NSLog(@"Adding item %@ to cart", itemID);
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:[NSString stringWithFormat:@"%@", itemID] forKey:@"id"];
 	[request setTimeOutSeconds:30];
-	[request setStringEncoding:NSUTF8StringEncoding];
+	//[request setStringEncoding:NSUTF8StringEncoding];
 	[request setNumberOfTimesToRetryOnTimeout:1];
+
 	[request setCompletionBlock:^{
-		NSError *error;
-		
-		if ([delegate respondsToSelector:@selector(storeWrapper:finishedAddingItemToCart:)]) {
-			[delegate storeWrapper:self finishedGettingOrders:
-			 [[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType]];
+		//NSError *error;
+		NSLog(@"Set completion block");
+        NSLog(@"Call completed block\n\n%@", [request responseString]);
+		if ([delegate respondsToSelector:@selector(storeWrapperFinishedAddingItemToCart:withRequest:)]) {
+            NSLog(@"Call completed block\n\n%@", [request responseString]);
+            [delegate storeWrapperFinishedAddingItemToCart:self withRequest:request];
+			//[delegate storeWrapper:self finishedAddingItemToCart:[NSString stringWithFormat:@"%@", [request responseString]]];
+			 
+             //[[[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error] objectForKey:returnType]];
 		}
 		
 	}];
 	[request setFailedBlock:^{
+        NSLog(@"Failed to add items to cart\n\n%@", [request responseString]);
 		NSError *error;
 		
-		if ([delegate respondsToSelector:@selector(storeWrapper:failedAddingItemToCart:)]) {
-			[delegate storeWrapper:self failedGettingOrders:
-			 [[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error]];
-		}
+        error = [request error];
+        NSLog(@"ERROR: %@",error);
+//		if ([delegate respondsToSelector:@selector(storeWrapper:failedAddingItemToCart:)]) {
+//			[delegate storeWrapper:self failedGettingOrders:
+//			 [[CJSONDeserializer deserializer] deserialize:[request responseData] error:&error]];
+//		}
 		
 	}];
+
     
-    request_ = request;
+    NSLog(@"starAsync");
+    formDataRequest_ = request;
 	[request startAsynchronous];
-    [request release];
+    //[request release];
 }
+
+
 
 -(void)cancelRequest {
 	[request_ clearDelegatesAndCancel];
