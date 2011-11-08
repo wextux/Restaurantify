@@ -3,11 +3,13 @@
 //  Restaurantify
 //
 //  Created by Will Fairclough on 11-11-07.
-//  Copyright (c) 2011 Superna. All rights reserved.
+//  Copyright (c) 2011 Boneyard Interactive. All rights reserved.
 //
 
 #import "BYMenuItemDetailsViewController.h"
 #import "BYShopifyVariant.h"
+#import "BYCartViewController.h"
+#import "BYAppDelegate.h"
 
 
 @implementation BYMenuItemDetailsViewController
@@ -65,9 +67,32 @@
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedGettingOrders:(NSDictionary *)failure {}
 -(void)storeWrapperFinishedAddingItemToCart:(LLStoreWrapper *)storeWrapper withRequest:(ASIFormDataRequest *)request {
     NSLog(@"URL: %@", [request url]);
+    
+    NSString *nibName = [[NSString alloc] init];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        nibName = @"CartViewController_iPhone";
+    } else {
+        nibName = @"CartViewController_iPad";
+    }
+    
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://zulauf-okon7796.myshopify.com/cart"]];
+    
+    BYCartViewController *cartViewController = [[BYCartViewController alloc] initWithNibName:nibName bundle:nil andURLRequest:urlRequest];
+    
+    cartViewController.title = @"My Order";
+    
+    UINavigationController *navController = [(BYAppDelegate *)[UIApplication sharedApplication].delegate navigationController];
+    
+    
+
+    [navController pushViewController:cartViewController animated:YES];
+    
+    
+    [nibName release];
 }
 -(void)storeWrapper:(LLStoreWrapper *)storeWrapper failedAddingItemToCart:(NSDictionary *)failure {
     NSLog(@"Failure: %@", failure);
+    
 }
 
 
