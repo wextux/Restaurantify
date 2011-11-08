@@ -15,8 +15,6 @@
 @interface LLStoreWrapper ()
 
 -(void)getProductsWithURLString:(NSString *)urlString andReturnType:(NSString *)returnType;
-//- (IBAction)requestFinished:(ASIHTTPRequest *)request;
-//- (IBAction)requestFailed:(ASIHTTPRequest *)request;
 
 @end
     
@@ -43,7 +41,6 @@ static NSString *returnFormat = @"json";
 	NSLog(@"%@", urlString);
 	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlString]];
 	[request setTimeOutSeconds:30];
-	//[request setStringEncoding:NSUTF8StringEncoding];
 	[request setNumberOfTimesToRetryOnTimeout:1];
 	[request setCompletionBlock:^{
 		NSError *error;
@@ -94,7 +91,6 @@ static NSString *returnFormat = @"json";
 	NSLog(@"%@", urlString);
 	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlString]];
 	[request setTimeOutSeconds:30];
-	//[request setStringEncoding:NSUTF8StringEncoding];
 	[request setNumberOfTimesToRetryOnTimeout:1];
 	[request setCompletionBlock:^{
 		NSError *error;
@@ -177,7 +173,6 @@ static NSString *returnFormat = @"json";
 
 	[request setCompletionBlock:^{
 		if ([delegate respondsToSelector:@selector(storeWrapperFinishedAddingItemToCart:withRequest:)]) {
-            NSLog(@"Call completed block\n\n%@", [request responseString]);
             [delegate storeWrapperFinishedAddingItemToCart:self withRequest:request];
 		}
 		
@@ -189,8 +184,6 @@ static NSString *returnFormat = @"json";
         NSLog(@"ERROR: %@",error);
 	}];
 
-    
-    NSLog(@"starAsync");
     formDataRequest_ = request;
 	[request startAsynchronous];
     //[request release];
